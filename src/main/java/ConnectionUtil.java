@@ -8,7 +8,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ConnectionUtil {
+
+
+    /**
+     * 在url指定的目标页获取数据，输入流直接写成stringbuffer返回
+     */
     public static String Connect(String address){
+
         HttpURLConnection conn = null;
         URL url = null;
         InputStream in = null;
@@ -22,7 +28,7 @@ public class ConnectionUtil {
             conn.setDoInput(true);
             conn.connect();
             in = conn.getInputStream();
-            reader = new BufferedReader(new      InputStreamReader(in));
+            reader = new BufferedReader(new InputStreamReader(in));
             stringBuffer = new StringBuffer();
             String line = null;
             while((line = reader.readLine()) != null){
